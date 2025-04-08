@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Libros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Crear Cuenta en la Tienda de Libros</h1>
+
+    <!-- Formulario de creación de cuenta -->
+    <form id="formulario-cuenta" onsubmit="return validarFormulario(event)">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br>
+
+        <label for="telefono">Teléfono (xxx xx xx xx):</label>
+        <input type="text" id="telefono" name="telefono" pattern="\d{3} \d{2} \d{2} \d{2}" required><br>
+
+        <label for="password">Password (mínimo 8 caracteres):</label>
+        <input type="password" id="password" name="password" minlength="8" required><br>
+
+        <label for="intereses">Áreas de interés:</label>
+        <select id="intereses" name="intereses" required>
+            <option value="programacion">Programación</option>
+            <option value="diseño">Diseño</option>
+            <option value="ciencias">Ciencias</option>
+        </select><br>
+
+        <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required><br>
+
+        <label for="aceptar-terminos">
+            <input type="checkbox" id="aceptar-terminos" name="aceptar-terminos" required> Acepto los términos de protección de datos
+        </label><br>
+
+        <button type="submit">Agregar</button>
+    </form>
+
+    <hr>
+
+    <!-- Lista de libros a seleccionar para la compra -->
+    <h2>Seleccionar Libros</h2>
+    <form id="formulario-libros">
+        <label for="libros">Nombre del libro:</label>
+        <select id="libros" name="libros" required>
+            <option value="libro1">El Gran Libro de Programación</option>
+            <option value="libro2">Diseño Gráfico para Todos</option>
+            <option value="libro3">Ciencias para la Vida</option>
+        </select><br>
+
+        <label for="precio">Precio del libro ($):</label>
+        <input type="number" id="precio" name="precio" step="0.01" required><br>
+
+        <label for="iva">IVA:</label>
+        <select id="iva" name="iva" required>
+            <option value="reducido">IVA Reducido (10%)</option>
+            <option value="normal">IVA Normal (21%)</option>
+        </select><br>
+
+        <label for="resultado">Precio con IVA:</label>
+        <input type="text" id="resultado" name="resultado" readonly><br>
+
+        <button type="button" onclick="calcularIVA()">Calcular</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
